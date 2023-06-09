@@ -1,0 +1,112 @@
+<template>
+  <div class="mb-6 mx-auto bg-white rounded p-5 shadow-md max-w-3xl">
+    <div class="flex flex-col">
+      <div class="flex items-center">
+        <img
+          :src="user.image"
+          alt="user image"
+          class="w-[70px] rounded-full bg-[#45555F] mr-3"
+          loading="lazy" />
+        <div>
+          <p class="text-2xl">{{ user.firstName }} {{ user.lastName }}</p>
+          <p>@{{ user.username }}</p>
+        </div>
+      </div>
+
+      <div class="my-5 px-8">
+        <h1 class="text-xl">{{ post.title }}</h1>
+        <p>
+          {{ showFullText ? post.body : post.body.slice(0, 50) }}
+          <span
+            v-if="!showFullText"
+            @click="showText"
+            class="cursor-pointer text-[#45555F]">
+            ....Show More
+          </span>
+        </p>
+      </div>
+
+      <div class="w-100 h-[3px] bg-black mt-7"></div>
+    </div>
+
+    <!-- POST ACTIONS -->
+    <div class="flex items-center justify-between mt-5 sm:text-xl px-5">
+      <div class="flex items-center">
+        <span
+          class="count bg-gray-200 w-[25px] h-[25px] rounded-full flex justify-center items-center text-sm">
+          {{ addReact ? post.reactions + 1 : post.reactions }}
+        </span>
+        <button
+          :class="`ml-1 hover:text-[#45555F] hover:cursor-pointer ${
+            addReact ? 'text-[#45555F]' : ''
+          }`"
+          @click="toggleReaction">
+          Like
+        </button>
+      </div>
+      <button
+        :class="`hover:cursor-pointer hover:text-[#45555F] ${
+          showAddComment ? 'text-[#45555F]' : ''
+        }`"
+        @click="toggleShowComment">
+        Comment
+      </button>
+      <button
+        class="hover:cursor-pointer hover:text-[#45555F]"
+        @click="$emit(`toggleModal`)">
+        Share
+      </button>
+    </div>
+    <!-- COMMENT SECTION -->
+
+    <CommentsList :id="post.id" :showAddComment="showAddComment" :user="user" />
+  </div>
+</template>
+
+<script>
+export default {
+  props: ["post"],
+
+  data() {
+    return {
+      id: "",
+      user: "",
+      showAddComment: "",
+      addReact: false,
+      showFullText: false,
+    };
+  },
+
+  methods: {
+    async getUserPosts() {
+      const { value } = await useFetch(
+        "https://dummyjson.com/posts/user/" + this.id
+      );
+      this.posts = await value;
+    },
+
+    async getUserInfo() {
+      const { data } = await useFetch("https://dummyjson.com/users/" + this.id);
+      this.user = await data.value;
+    },
+
+    toggleShowComment() {
+      this.showAddComment = !this.showAddComment;
+    },
+
+    toggleReaction() {
+      this.addReact = !this.addReact;
+    },
+
+    showText() {
+      this.showFullText = true;
+    },
+  },
+
+  created() {
+    this.id = this.$route.params.userId;
+    this.getUserPosts();
+    this.getUserInfo();
+  },
+};
+</script>

@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #45555F;
+}
+
+.container {
+  width: 1000px;
+  max-width: 90% !important;
+}
