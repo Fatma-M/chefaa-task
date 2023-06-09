@@ -1,6 +1,6 @@
 ### Links
 
-- Live Site URL:
+- Live Site URL: https://chefaa-task.vercel.app/
 
 ### Description
 
