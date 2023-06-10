@@ -8,13 +8,13 @@
           class="w-[70px] rounded-full bg-[#45555F] mr-3"
           loading="lazy" />
         <div>
-          <p class="text-2xl">{{ user.firstName }} {{ user.lastName }}</p>
+          <p class="text-xl">{{ user.firstName }} {{ user.lastName }}</p>
           <p>@{{ user.username }}</p>
         </div>
       </div>
 
       <div class="my-5 px-8">
-        <h1 class="text-xl">{{ post.title }}</h1>
+        <h1>{{ post.title }}</h1>
         <p>
           {{ showFullText ? post.body : post.body.slice(0, 50) }}
           <span
@@ -30,7 +30,7 @@
     </div>
 
     <!-- POST ACTIONS -->
-    <div class="flex items-center justify-between mt-5 sm:text-xl px-5">
+    <div class="flex items-center justify-between mt-5 px-5">
       <div class="flex items-center">
         <span
           class="count bg-gray-200 w-[25px] h-[25px] rounded-full flex justify-center items-center text-sm">
@@ -38,7 +38,7 @@
         </span>
         <button
           :class="`ml-1 hover:text-[#10364E] hover:cursor-pointer ${
-            addReact ? 'text-[#10364E]' : ''
+            addReact ? 'text-[#10364E]' : 'text-black'
           }`"
           @click="toggleReaction">
           Like
@@ -46,7 +46,7 @@
       </div>
       <button
         :class="`hover:cursor-pointer hover:text-[#10364E] ${
-          showAddComment ? 'text-[#10364E]' : ''
+          showAddComment ? 'text-[#10364E]' : 'text-black'
         }`"
         @click="toggleShowComment">
         Comment
