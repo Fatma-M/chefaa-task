@@ -42,22 +42,22 @@
           {{ addReact ? post.reactions + 1 : post.reactions }}
         </span>
         <button
-          :class="`ml-1 hover:text-[#45555F] hover:cursor-pointer ${
-            addReact ? 'text-[#45555F]' : ''
+          :class="`ml-1 hover:text-[#10364E] hover:cursor-pointer ${
+            addReact ? 'text-[#10364E]' : 'text-black'
           }`"
           @click="toggleReaction">
           Like
         </button>
       </div>
       <button
-        :class="`hover:cursor-pointer hover:text-[#45555F] ${
-          showAddComment ? 'text-[#45555F]' : ''
+        :class="`hover:cursor-pointer hover:text-[#10364E] ${
+          showAddComment ? 'text-[#10364E]' : 'text-black'
         }`"
         @click="toggleComments">
         Comment
       </button>
       <button
-        class="hover:cursor-pointer hover:text-[#45555F]"
+        class="hover:cursor-pointer hover:text-[#10364E]"
         @click="$emit(`toggleModal`)">
         Share
       </button>

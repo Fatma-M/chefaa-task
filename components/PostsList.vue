@@ -60,15 +60,13 @@ export default {
         lazy: true,
       });
       this.postsTemp = await data.value.posts;
-      this.posts = this.postsTemp.slice(0, 3);
-
+      this.posts = this.postsTemp.slice(0, 5);
       this.loading = false;
       if (this.posts.length === 0) return (this.noPostsFound = true);
     },
 
     showMorePosts() {
       this.loading = true;
-
       this.postsLimit += 6;
       this.posts = this.postsTemp.slice(0, this.postsLimit);
       this.loading = false;
@@ -86,6 +84,10 @@ export default {
   },
 
   created() {
+    this.getPosts();
+  },
+
+  mounted() {
     this.getPosts();
   },
 };

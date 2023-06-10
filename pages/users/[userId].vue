@@ -54,7 +54,5 @@ export default {
   created() {
     this.getUserPosts();
   },
-
-  mounted() {},
 };
 </script>
