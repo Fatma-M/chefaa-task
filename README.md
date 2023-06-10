@@ -14,7 +14,7 @@
 
 # Description
 
-This is a simple feeds app built with Nuxt 3 & Vue 3.
+This is a simple feed page built with Nuxt 3 & Vue 3.
 
 Users Can:
 
