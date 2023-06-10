@@ -1,8 +1,18 @@
-### Links
+##### Table of Contents
+
+[Links](#links)  
+[Description](#description)  
+[Tools](#tools)  
+[Screenshots](#screenshots)  
+[Setup](#setup)  
+[Development](#development)  
+[Production](#production)
+
+# Links
 
 - Live Site URL: https://chefaa-task.vercel.app/
 
-### Description
+# Description
 
 This is a simple feeds app built with Nuxt 3 & Vue 3.
 
@@ -12,19 +22,19 @@ Users Can:
 - Add new Comments & Reacts to a post.
 - View a specific user posts page
 
-### Tools
+# Tools
 
 - HTML
 - Tailwind CSS
 - Vue 3
 - Nuxt 3
 
-### Screenshot
+# Screenshots
 
 ![Home](./design/home.png) ![User](./design/user.png)
 ![Mobile](./design/mobile.png)
 
-## Setup
+# Setup
 
 Make sure to install the dependencies:
 
@@ -39,7 +49,7 @@ npm install
 pnpm install
 ```
 
-## Development Server
+# Development
 
 Start the development server on `http://localhost:3000`
 
@@ -47,7 +57,7 @@ Start the development server on `http://localhost:3000`
 npm run dev
 ```
 
-## Production
+# Production
 
 Build the application for production:
 
