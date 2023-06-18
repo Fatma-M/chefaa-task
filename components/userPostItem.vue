@@ -78,13 +78,6 @@ export default {
   },
 
   methods: {
-    async getUserPosts() {
-      const { value } = await useFetch(
-        "https://dummyjson.com/posts/user/" + this.id
-      );
-      this.posts = await value;
-    },
-
     async getUserInfo() {
       const { data } = await useFetch("https://dummyjson.com/users/" + this.id);
       this.user = await data.value;
@@ -105,7 +98,6 @@ export default {
 
   created() {
     this.id = this.$route.params.userId;
-    this.getUserPosts();
     this.getUserInfo();
   },
 };
